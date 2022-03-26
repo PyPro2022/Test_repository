@@ -1,1 +1,2 @@
 Hello, this is first change in file.
+This is second.
