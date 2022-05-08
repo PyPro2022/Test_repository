@@ -24,7 +24,7 @@ def index():
     return render_template('index.html')
 
 
-# D:\PyProjects\FLASK\Lesson11\DZ\app.py
+# D:\PyProjects\FLASK\Lesson11\DZ_9_BitcoinRate\app.py
 #D:\PyProjects\FLASK\Lesson11\app.py
 
 
