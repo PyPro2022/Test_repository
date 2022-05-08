@@ -1,0 +1,18 @@
+{% extends 's_base.html' %}
+
+{% block title %}Search result{% endblock %}
+
+{% block content %}
+<hr>
+<h1>Search result</h1>
+        <a href="{{ url_for('bitcoin_rate', currency=rate) }}"></a>
+           <hr>
+            <ul>
+                {% for i in range(rng) %}
+                <li>{{names[i]}}: {{ rate[names[i]] }}</li>
+{% endfor %}
+            </ul>
+
+{#<!--        <span class="badge bg-primary">{{ book['created'] }}</span>-->#}
+        <hr>
+{% endblock %}

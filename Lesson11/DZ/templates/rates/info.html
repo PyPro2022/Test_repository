@@ -1,0 +1,22 @@
+{% extends 's_base.html' %}
+
+{% block title %}Currencies info{% endblock %}
+
+{% block content %}
+<hr>
+<h2>{{ title }}</h2>
+
+    {% for data in cur_list %}
+
+    <hr>
+<ul>
+    {% for i in range(3) %}
+                <li>{{names[i]}}: {{ data[names[i]] }}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+
+<hr>
+{% endblock %}
+
+

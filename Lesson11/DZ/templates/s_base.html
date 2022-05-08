@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">-->
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--^^^То что вставили из bootstrap-->
+
+    <!--Скопировали из index-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+    <!--обычное статическое содержимое через url_for()-->
+
+    <title>Bitcoin rate - {% block title %}{% endblock %}</title>
+    <!--<title> Статическая часть - {# % block title % #}Динамическая часть{# % endblock % #}</title>-->
+</head>
+
+
+<body>
+<div class="container">
+
+    <!--Панель навигации/начало-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <!--        добавили-->
+        <div class="container-fluid">
+                    <!--Заголовок панели-->
+            <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>  <!--Имя панели-->
+            <!--Кнопочка со ссылкой на index.html-->
+             <a class="navbar-brand" href="{{ url_for('info') }}">Currancies info</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--Конец заголовка панели-->
+                <!--добавили поиск-->
+<!--                <form class="d-flex">-->
+{#<!--                    добавили action в поиск и ссылку на шаблон search_book -->#}
+{#<!--                    ?value=name - добавляются к оснвному URL-->#}
+                <h6 align="center">Type curreny code (exmp: `cny`) for search ----></h6>
+                <form class="d-flex" method="get" action="{{ url_for('bitcoin_rate') }}?currency=name">
+
+{#<!--                        значение параметра name передаётся в ссылку поля action ^^^^^ его надо передать во вью-->#}
+                    <input class="form-control me-2" type="search" placeholder="Type currecy code here" aria-label="Search" name="currency">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <!--Конец формы поиска-->
+            </div>
+    </nav>
+</div>
+
+
+
+
+    <!-- Панель навигации/конец   -->
+
+    <!--Спецблок. Будем подгружать из бутстрапа. Спецтеги дадут контент соотв. страниц-->
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+    <!--{# % block(!ключевое слово) имя_блока(как переменная в python) % #}-->
+
+
+</body>
+</html>
